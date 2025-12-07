@@ -26,26 +26,52 @@ export const Footer: React.FC = () => {
            viewport={{ once: true }}
            transition={{ delay: 0.2 }}
         >
-          <button className="group relative px-8 py-4 bg-white text-black font-bold rounded-full text-lg hover:bg-gray-200 transition-all active:scale-95 shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)]">
+          {/* Updated: Changed button to 'a' tag for mailto functionality */}
+          <a 
+            href="mailto:varchenkomaks15@gmail.com"
+            className="group relative px-8 py-4 bg-white text-black font-bold rounded-full text-lg hover:bg-gray-200 transition-all active:scale-95 shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)] inline-flex items-center gap-2"
+          >
             <span className="relative z-10 flex items-center gap-2">
               Get in touch <Send size={18} className="group-hover:translate-x-1 transition-transform" />
             </span>
-          </button>
+          </a>
         </motion.div>
 
         <div className="mt-16 flex justify-center gap-8">
-          <SocialLink href="#" icon={<Github size={24} />} label="GitHub" />
-          <SocialLink href="#" icon={<Send size={24} />} label="Telegram" />
-          <SocialLink href="#" icon={<Mail size={24} />} label="Email" />
+          <SocialLink 
+            href="https://github.com/MaxBetov-pdd" 
+            icon={<Github size={24} />} 
+            label="GitHub" 
+          />
+          <SocialLink 
+            href="https://t.me/MaxEther0x" 
+            icon={<Send size={24} />} 
+            label="Telegram" 
+          />
+          <SocialLink 
+            href="mailto:varchenkomaks15@gmail.com" 
+            icon={<Mail size={24} />} 
+            label="Email" 
+            isExternal={false}
+          />
         </div>
       </div>
     </footer>
   );
 };
 
-const SocialLink: React.FC<{ href: string; icon: React.ReactNode; label: string }> = ({ href, icon, label }) => (
+interface SocialLinkProps {
+  href: string;
+  icon: React.ReactNode;
+  label: string;
+  isExternal?: boolean;
+}
+
+const SocialLink: React.FC<SocialLinkProps> = ({ href, icon, label, isExternal = true }) => (
   <a 
-    href={href} 
+    href={href}
+    target={isExternal ? "_blank" : undefined}
+    rel={isExternal ? "noopener noreferrer" : undefined}
     className="text-gray-400 hover:text-white transition-colors duration-300 flex flex-col items-center gap-2 group"
   >
     <div className="p-3 rounded-full bg-white/5 border border-white/10 group-hover:bg-white/10 group-hover:scale-110 transition-all">

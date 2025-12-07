@@ -79,9 +79,14 @@ export const Hero: React.FC = () => {
             >
               <Code size={20} /> View My Stack
             </a>
-            <button className="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium rounded-full transition-all hover:border-white/20 active:scale-95 flex items-center justify-center gap-2 backdrop-blur-md w-full md:w-auto">
+            <a 
+              href="https://t.me/MaxEther0x"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium rounded-full transition-all hover:border-white/20 active:scale-95 flex items-center justify-center gap-2 backdrop-blur-md w-full md:w-auto"
+            >
               Contact Me <ArrowRight size={18} />
-            </button>
+            </a>
         </motion.div>
       </div>
 
